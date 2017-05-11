@@ -28,8 +28,28 @@
     <!-- Add your extensions here -->
   </extensions>
 
-  <actions>
-    <!-- Add your actions here -->
-  </actions>
+  <!--<actions>-->
+    <!--&lt;!&ndash; Add your actions here &ndash;&gt;-->
+    <!--<action id="com.forwardmomentum.intellij.plugins.freeman.AddFreemanPointAction"-->
+            <!--class="com.forwardmomentum.intellij.plugins.freeman.AddFreemanPointAction" text="Add Freeman&#39;s Point"-->
+            <!--description="Adds Freeman&#39;s Point, that will be used by Morgan Freeman to compose your code-story ">-->
+      <!--<add-to-group group-id="MainMenu" anchor="after" relative-to-action="WindowMenu"/>-->
+      <!--&lt;!&ndash;<keyboard-shortcut keymap="$default"/>&ndash;&gt;-->
+    <!--</action>-->
+  <!--</actions>-->
 
+  <!--<actions>-->
+    <!--<action id="com.forwardmomentum.intellij.plugins.freeman.AddFreemanPointAction"-->
+            <!--class="com.forwardmomentum.intellij.plugins.freeman.AddFreemanPointAction" text="Add Freeman&#39;s Point"-->
+            <!--description="Add Freeman&#39;s Point">-->
+      <!--<add-to-group group-id="EditorActions" anchor="first"/>-->
+    <!--</action>-->
+  <!--</actions>-->
+  <actions>
+    <action id="com.forwardmomentum.intellij.plugins.freeman.AddFreemanPointAction"
+            class="com.forwardmomentum.intellij.plugins.freeman.AddFreemanPointAction" text="Add Freeman&#39;s Point"
+            description="Adds Freeman&#39;s Point">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </action>
+  </actions>
 </idea-plugin>
