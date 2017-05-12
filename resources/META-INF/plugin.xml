@@ -29,6 +29,13 @@
     <codeInsight.lineMarkerProvider language="JAVA" implementationClass="com.forwardmomentum.intellij.plugins.freeman.FreemanPointMarkerProvider"/>
   </extensions>
 
+  <!--<application-components>-->
+    <!--<component>-->
+      <!--<implementation-class>com.forwardmomentum.intellij.plugins.freeman.FreemanService</implementation-class>-->
+    <!--</component>-->
+    <!--&lt;!&ndash; Add your application components here &ndash;&gt;-->
+  <!--</application-components>-->
+
   <!--<actions>-->
     <!--&lt;!&ndash; Add your actions here &ndash;&gt;-->
     <!--<action id="com.forwardmomentum.intellij.plugins.freeman.AddFreemanPointAction"-->

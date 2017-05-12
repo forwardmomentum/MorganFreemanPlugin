@@ -7,6 +7,8 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.IconLoader;
 
+import java.util.Random;
+
 /**
  * Created by forwardmomentum on 11.05.17.
  */
@@ -17,32 +19,39 @@ public class AddFreemanPointAction extends AnAction {
     }
 
     public void actionPerformed(AnActionEvent event) {
+
 //        Project project = event.getData(CommonDataKeys.PROJECT);
-//        String txt= Messages.showInputDialog(project, "What is your name?", "Input your name", Messages.getQuestionIcon());
+//        String txt= Messages.showInputDialog(project, FreemanService.getSettings().getPath(), "Input your name", Messages.getQuestionIcon());
 //        Messages.showMessageDialog(project, "Hello, " + txt + "!\n I am glad to see you.", "Information", Messages.getInformationIcon());
-//        event.getData(LangDataKeys.PSI_FILE)
 
-        final Editor editor = event.getRequiredData(CommonDataKeys.EDITOR);
-        final Project project = event.getRequiredData(CommonDataKeys.PROJECT);
-        final Document document = editor.getDocument();
-        final SelectionModel selectionModel = editor.getSelectionModel();
+        System.out.println(FreemanPersistensyService.getInstance().getModel().getPath());
 
-        final int start = selectionModel.getSelectionStart();
-        final int end = selectionModel.getSelectionEnd();
+        FreemanPersistensyService.getInstance().getModel().setPath("Olala");
+        FreemanPersistensyService.getInstance().save();
 
-//        editor.getGutter().
-        //New instance of Runnable to make a replacement
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                document.replaceString(start, end, "Replacement");
+        //        event.getData(LangDataKeys.PSI_FILE);
 
-
-            }
-        };
-        //Making the replacement
-        WriteCommandAction.runWriteCommandAction(project, runnable);
-        selectionModel.removeSelection();
+//        final Editor editor = event.getRequiredData(CommonDataKeys.EDITOR);
+//        final Project project = event.getRequiredData(CommonDataKeys.PROJECT);
+//        final Document document = editor.getDocument();
+//        final SelectionModel selectionModel = editor.getSelectionModel();
+//
+//        final int start = selectionModel.getSelectionStart();
+//        final int end = selectionModel.getSelectionEnd();
+//
+////        editor.getGutter().
+//        //New instance of Runnable to make a replacement
+//        Runnable runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                document.replaceString(start, end, "Replacement");
+//
+//
+//            }
+//        };
+//        //Making the replacement
+//        WriteCommandAction.runWriteCommandAction(project, runnable);
+//        selectionModel.removeSelection();
 
 //        CaretModel caretModel = editor.getCaretModel();
 //        LogicalPosition logicalPosition = caretModel.getLogicalPosition();
