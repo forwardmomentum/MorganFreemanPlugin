@@ -1,13 +1,9 @@
 package com.forwardmomentum.intellij.plugins.freeman;
 
 import com.intellij.openapi.actionSystem.*;
-import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.*;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.IconLoader;
-
-import java.util.Random;
 
 /**
  * Created by forwardmomentum on 11.05.17.
@@ -23,11 +19,11 @@ public class AddFreemanPointAction extends AnAction {
         Project project = event.getData(CommonDataKeys.PROJECT);
 //        String txt= Messages.showInputDialog(project, FreemanService.getSettings().getPath(), "Input your name", Messages.getQuestionIcon());
 //        Messages.showMessageDialog(project, "Hello, " + txt + "!\n I am glad to see you.", "Information", Messages.getInformationIcon());
+//        event.getData(LangDataKeys.PSI_ELEMENT).
+//        System.out.println(FreemanController.getInstance(project).getModel().getPath());
 
-        System.out.println(FreemanPersistensyService.getInstance(project).getModel().getPath());
-
-        FreemanPersistensyService.getInstance(project).getModel().setPath("Olala");
-        FreemanPersistensyService.getInstance(project).getModel().save();
+//        FreemanController.getInstance(project).getModel().setPath("Olala");
+        FreemanController.getInstance(project).getModel().save();
 
         //        event.getData(LangDataKeys.PSI_FILE);
 

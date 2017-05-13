@@ -1,4 +1,4 @@
-package com.forwardmomentum.intellij.plugins.freeman;
+package com.forwardmomentum.intellij.plugins.freeman.model;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,6 +11,8 @@ import com.intellij.openapi.vfs.VirtualFile;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Model stores all project-level data for Morgan Freeman plugin
@@ -19,7 +21,7 @@ import java.nio.file.Paths;
 public class FreemanModel {
 
     @Expose
-    private String path = "default";
+    private List<StoryModel> stories;
 
     private Project project;
 
@@ -58,7 +60,7 @@ public class FreemanModel {
                 .excludeFieldsWithoutExposeAnnotation()
                 .create();
         FreemanModel fm = gson.fromJson(serStr, this.getClass());
-        this.path = fm.path;
+        this.stories = fm.stories;
     }
 
     /**
@@ -93,17 +95,12 @@ public class FreemanModel {
         return gson.toJson(this);
     }
 
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
+    public List<StoryModel> getStories() {
+        return Collections.unmodifiableList(stories);
     }
 
     @Override
     public String toString() {
-        return "Modelka{" +
-                "gaugePath='" + path;
+        return this.toJsonString();
     }
 }

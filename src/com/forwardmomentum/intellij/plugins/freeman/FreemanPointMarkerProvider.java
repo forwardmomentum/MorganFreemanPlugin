@@ -4,14 +4,11 @@ import com.intellij.codeHighlighting.Pass;
 import com.intellij.codeInsight.daemon.GutterIconNavigationHandler;
 import com.intellij.codeInsight.daemon.LineMarkerInfo;
 import com.intellij.codeInsight.daemon.LineMarkerProvider;
-import com.intellij.codeInsight.daemon.RelatedItemLineMarkerProvider;
 import com.intellij.icons.AllIcons;
+import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.markup.GutterIconRenderer;
-import com.intellij.openapi.project.Project;
+import com.intellij.psi.PsiDocumentManager;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiIdentifier;
-import com.intellij.psi.PsiLiteralExpression;
-import com.intellij.psi.PsiMethod;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.event.MouseEvent;
@@ -46,25 +43,29 @@ public class FreemanPointMarkerProvider implements LineMarkerProvider {
 
     @Override
     public LineMarkerInfo getLineMarkerInfo(@NotNull PsiElement element) {
+
+//        Document d = PsiDocumentManager.getInstance(element.getProject()).getDocument(element.getContainingFile());
+//        d.
+        // todo if line is markered in model - make mf point
 //        if (element instanceof PsiIdentifier && element.getParent() instanceof PsiMethod)
 //        element.getContext().
-            return new LineMarkerInfo<>(
-                    element,
-                    element.getTextRange(),
-                    AllIcons.Vcs.Arrow_right,
-                    Pass.LINE_MARKERS,
-                    el -> "Execute me",
-                    new GutterIconNavigationHandler<PsiElement>() {
-                        @Override
-                        public void navigate(MouseEvent e, PsiElement elt) {
-                            if (elt.isValid()) {
-                                System.out.println("OHHOHA");
+        return new LineMarkerInfo<>(
+                element,
+                element.getTextRange(),
+                AllIcons.Vcs.Arrow_right,
+                Pass.LINE_MARKERS,
+                el -> "Execute me",
+                new GutterIconNavigationHandler<PsiElement>() {
+                    @Override
+                    public void navigate(MouseEvent e, PsiElement elt) {
+                        if (elt.isValid()) {
+                            System.out.println("OHHOHA");
 //                                showPopup(e, elt, "Hah");
-                            }
                         }
-                    },
-                    GutterIconRenderer.Alignment.RIGHT
-            );
+                    }
+                },
+                GutterIconRenderer.Alignment.RIGHT
+        );
 //        return null;
     }
 
@@ -101,7 +102,6 @@ public class FreemanPointMarkerProvider implements LineMarkerProvider {
 //
 //        popup.show(new RelativePoint(e));
 //    }
-
 
 
 }

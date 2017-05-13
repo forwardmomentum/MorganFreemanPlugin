@@ -25,7 +25,8 @@
   -->
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
+    <toolWindow id="Morgan Freeman" secondary="true" icon="/icons/mf.png" anchor="right"
+                factoryClass="com.forwardmomentum.intellij.plugins.freeman.ui.FreemanToolWindow"/>
     <codeInsight.lineMarkerProvider language="JAVA" implementationClass="com.forwardmomentum.intellij.plugins.freeman.FreemanPointMarkerProvider"/>
   </extensions>
 
@@ -60,6 +61,5 @@
       <add-to-group group-id="EditorPopupMenu" anchor="first"/>
     </action>
   </actions>
-
 
 </idea-plugin>
