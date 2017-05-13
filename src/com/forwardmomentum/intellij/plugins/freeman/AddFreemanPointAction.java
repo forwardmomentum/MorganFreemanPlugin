@@ -20,14 +20,14 @@ public class AddFreemanPointAction extends AnAction {
 
     public void actionPerformed(AnActionEvent event) {
 
-//        Project project = event.getData(CommonDataKeys.PROJECT);
+        Project project = event.getData(CommonDataKeys.PROJECT);
 //        String txt= Messages.showInputDialog(project, FreemanService.getSettings().getPath(), "Input your name", Messages.getQuestionIcon());
 //        Messages.showMessageDialog(project, "Hello, " + txt + "!\n I am glad to see you.", "Information", Messages.getInformationIcon());
 
-        System.out.println(FreemanPersistensyService.getInstance().getModel().getPath());
+        System.out.println(FreemanPersistensyService.getInstance(project).getModel().getPath());
 
-        FreemanPersistensyService.getInstance().getModel().setPath("Olala");
-        FreemanPersistensyService.getInstance().save();
+        FreemanPersistensyService.getInstance(project).getModel().setPath("Olala");
+        FreemanPersistensyService.getInstance(project).getModel().save();
 
         //        event.getData(LangDataKeys.PSI_FILE);
 
